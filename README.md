@@ -18,4 +18,4 @@ Creating hospital patience client login  list for prescriptions and patient deta
 * This is done when the patient be able to see the number or doctors in the hopital and request for a particular doctor
 
 
-© 2022 Buddy , Michael and Keyven, KEVBUDMIK brand llc . Confidential and Proprietary. All Rights Reserved.
+© 2022 Buddy , Michael and Kevyn, KEVBUDMIK brand llc . Confidential and Proprietary. All Rights Reserved.
