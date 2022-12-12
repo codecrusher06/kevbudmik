@@ -101,7 +101,7 @@ app.use('/app', (req, res, next) => {
 */
 var login = require('./routes/login');
 var users = require('./routes/users');
-var appRoute = require('./routes/app');
+var appRoute = require('./app');
 var patients = require('./routes/patients');
 var settings = require('./routes/settings');
 var diseases = require('./routes/diseases');
