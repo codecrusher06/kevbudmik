@@ -14,8 +14,7 @@ const flash = require('connect-flash');
 const passport = require('passport');
 const LocalStrategy = require('passport-local').Strategy;
 const mongo = require('mongodb');
-var {mongoose} = require('./server/db/mongoose.js');
-
+const mongoose = require('mongoose')
 /*
     View Engine
 */
@@ -23,7 +22,7 @@ var app = express();
 // app.use([path,] callback [, callback...]) -> puts middleware fot the app
 app.use(express.static(__dirname + '/views'));
 app.use(express.static(path.join(__dirname, '/public')));
-app.use(favicon(__dirname + '/public/favicon.ico'));
+// app.use(favicon(__dirname + '/public/favicon.ico'));
 // app.engine('.extenionName', renderingEngine) -> renders files
 app.engine('handlebars', exphbs({defaultLayout: 'layout'}));
 // app.set('view engine', 'engineToUse') -> sets default viewing engine
