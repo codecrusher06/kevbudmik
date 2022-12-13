@@ -11,9 +11,9 @@ const express = require('express');
 const _ = require('lodash');
 const router = express.Router();
 
-var {scoreOfDisease, Disease} = require('./../server/models/diseases.js');
+var {scoreOfDisease, Disease} = require('../server/models/diseases');
 var Patient = require('../server/models/patient');
-var  Room = require('../server/models/room');
+var  Room = require('../server/models/rooms');
 var isValidDate = require('is-valid-date');
 const {ObjectID} = require('mongodb');
 

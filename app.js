@@ -15,9 +15,22 @@ const passport = require('passport');
 const LocalStrategy = require('passport-local').Strategy;
 const mongo = require('mongodb');
 const mongoose = require('mongoose')
+
+/*
+    Website routes
+*/
+var login = require('./routes/login');
+var users = require('./routes/users');
+var appRoute = require('./routes/app');
+var patients = require('./routes/patients');
+var settings = require('./routes/settings');
+var diseases = require('./routes/diseases');
+var rooms = require('./routes/rooms');
+
 /*
     View Engine
 */
+
 var app = express();
 // app.use([path,] callback [, callback...]) -> puts middleware fot the app
 app.use(express.static(__dirname + '/views'));
@@ -95,16 +108,7 @@ app.use('/app', (req, res, next) => {
     }
 });
 
-/*
-    Website routes
-*/
-var login = require('./routes/login');
-var users = require('./routes/users');
-var appRoute = require('./app');
-var patients = require('./routes/patients');
-var settings = require('./routes/settings');
-var diseases = require('./routes/diseases');
-var rooms = require('./routes/rooms');
+
 
 app.use('/', login);
 app.use('/', appRoute);
