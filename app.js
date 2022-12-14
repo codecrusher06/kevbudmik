@@ -14,28 +14,16 @@ const flash = require('connect-flash');
 const passport = require('passport');
 const LocalStrategy = require('passport-local').Strategy;
 const mongo = require('mongodb');
-const mongoose = require('mongoose')
-
-/*
-    Website routes
-*/
-var login = require('./routes/login');
-var users = require('./routes/users');
-var appRoute = require('./routes/app');
-var patients = require('./routes/patients');
-var settings = require('./routes/settings');
-var diseases = require('./routes/diseases');
-var rooms = require('./routes/rooms');
+var {mongoose} = require('./server/db/mongoose.js');
 
 /*
     View Engine
 */
-
 var app = express();
 // app.use([path,] callback [, callback...]) -> puts middleware fot the app
 app.use(express.static(__dirname + '/views'));
 app.use(express.static(path.join(__dirname, '/public')));
-// app.use(favicon(__dirname + '/public/favicon.ico'));
+app.use(favicon(__dirname + '/public/favicon.ico'));
 // app.engine('.extenionName', renderingEngine) -> renders files
 app.engine('handlebars', exphbs({defaultLayout: 'layout'}));
 // app.set('view engine', 'engineToUse') -> sets default viewing engine
@@ -108,7 +96,16 @@ app.use('/app', (req, res, next) => {
     }
 });
 
-
+/*
+    Website routes
+*/
+var login = require('./routes/login');
+var users = require('./routes/users');
+var appRoute = require('./routes/app');
+var patients = require('./routes/patients');
+var settings = require('./routes/settings');
+var diseases = require('./routes/diseases');
+var rooms = require('./routes/rooms');
 
 app.use('/', login);
 app.use('/', appRoute);

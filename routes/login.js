@@ -5,11 +5,12 @@
     official documentation http://www.passportjs.org/docs and adapted to the User model of this system
 */
 
+
 const express = require('express');
 const router = express.Router();
 const passport = require ('passport');
 const LocalStrategy = require ('passport-local').Strategy;
-const User = require('../server/models/user');
+const User = require('./../server/models/user.js');
 
 /*
     GET / -> get to the login page
