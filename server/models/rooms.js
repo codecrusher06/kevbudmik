@@ -4,9 +4,9 @@
     true  = occupied room
 */
 
-const mongoose = require ('mongoose');
+const {Schema,model} = require ('mongoose');
 
-var RoomSchema = mongoose.Schema({
+var RoomSchema = new Schema({
 	name: {
         type: String,
         unique: true,
@@ -19,31 +19,31 @@ var RoomSchema = mongoose.Schema({
     }
 });
 
-var Room = mongoose.model('Room', RoomSchema);
+module.exports = RoomSchema;
 
-var rooms = {};
-rooms["noroom"] = false;
+// var rooms = {};
+// rooms["noroom"] = false;
 
 
 /*
 	Function to put the default diseases in the system
 */
-function populateDatabase () {
-    for (prop in rooms) {
-        var room = Room({
-            name: prop,
-            availability: rooms[prop]
-        });
+// function populateDatabase () {
+//     for (prop in rooms) {
+//         var room = Room({
+//             name: prop,
+//             availability: rooms[prop]
+//         });
 
 		// simply save the default room in the system
-        room.save().then((disease) => {
-			// do nothing
-		}, (err) => {
-			// do nothing
-		});
-    }
-}
+//         room.save().then((disease) => {
+// 			// do nothing
+// 		}, (err) => {
+// 			// do nothing
+// 		});
+//     }
+// }
 
-populateDatabase();
+// populateDatabase();
 
-module.exports = {rooms, Room};
+// module.exports = {rooms, Room};

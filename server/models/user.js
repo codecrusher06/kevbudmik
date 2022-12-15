@@ -2,10 +2,10 @@
  	Define the authentification system and the user model.
 	***Password are stored encrypted using Bcrypt algorithm.
 */
-const mongoose = require ('mongoose');
+const {Schema,model} = require ('mongoose');
 const bcrypt = require ('bcryptjs');
 
-var UserSchema = mongoose.Schema({
+var UserSchema = new Schema({
 	username: {
 		type: String,
 		required: true,
@@ -17,13 +17,13 @@ var UserSchema = mongoose.Schema({
 	},
 });
 // define the model User to be added in the database
-var User = module.exports = mongoose.model('User', UserSchema);
+module.exports =  UserSchema;
 /*
 	CREATE ADMIN ACCOUNT
 */
-var adminUser = new User({
+var adminUser = new UserSchema({
 	username: 'admin',
-	password: 'admin'
+	password: '1234!'
 });
 createUser(adminUser, function (aux1, aux2) {
 	// do nothing

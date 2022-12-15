@@ -1,8 +1,8 @@
 /*
 	mongoDB Schema for diseases
 */
-const mongoose = require ('mongoose');
-var DiseaseSchema = mongoose.Schema({
+const {Schema,model} = require ('mongoose');
+var DiseaseSchema = new Schema({
     name: {
         type: String,
         unique: true,
@@ -14,11 +14,11 @@ var DiseaseSchema = mongoose.Schema({
         default: 0
     }
 });
-var Disease = mongoose.model('Disease', DiseaseSchema);
+module.exports = DiseaseSchema;
 /*
  	Default diseases in the system
 		-> those will be added as soon as the system is live
 		-> if they are deleted from the system, and the system restarts, then they will be added again in the system
 */
-var scoreOfDisease = {}; // empty map
-module.exports = {scoreOfDisease, Disease};
+// var scoreOfDisease = {}; // empty map
+// module.exports = {scoreOfDisease, Disease};

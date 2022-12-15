@@ -14,7 +14,8 @@ const flash = require('connect-flash');
 const passport = require('passport');
 const LocalStrategy = require('passport-local').Strategy;
 const mongo = require('mongodb');
-var {mongoose} = require('./server/db/mongoose.js');
+
+var {connection} = require('./config/connection.js');
 
 /*
     View Engine
